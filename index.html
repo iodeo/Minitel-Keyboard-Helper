@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Minitel Keyboard Helper</title>
+  </head>
+  <body>
+    <h1>Input fields</h1>
+    <form id="input">
+      <label for="modele">Modèle:</label>
+      <select name="modele" id="modele" disabled>
+        <option value="M1">Minitel1</option>
+        <option selected value="M1b">Minitel1b</option>
+        <option value="M2">Minitel2</option>
+      </select>
+      <label for="standard">Standard:</label>
+      <select name="standard" id="standard" disabled>
+        <option selected value="videotex">Videotex</option>
+        <option selected value="mixte">Mixte</option>
+        <option value="teleInfo">Téléinfo</option>
+      </select>
+      <label for="clavier">Clavier:</label>
+      <select name="mode" id="mode" disabled>
+        <option value="normal">Normal</option>
+        <option selected value="etendu">Etendu</option>
+      </select>
+      <label for="jeu">Jeu:</label>
+      <select name="jeu" id="jeu" disabled>
+        <option selected value="">NA</option>
+        <option value="americain">Américain</option>
+        <option value="francais">Français</option>
+      </select>
+      <label for="casse">Casse:</label>
+      <select name="casse" id="casse" disabled>
+        <option value="min">Minuscule</option>
+        <option selected value="maj">Majuscule</option>
+      </select>
+      <label for="phrase">Texte:</label>
+      <input name="phrase" id="phrase" type="text">
+      <input type="button" onclick="" value="Ok">
+    </form>
+    <h1>Output table</h1>
+    <table id="output">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Char</th>
+          <th>Key</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- see script.js -->
+      </tbody>
+    </table>
+  </body>
+  <script src="script.js"></script>
+</html>
