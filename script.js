@@ -1,7 +1,7 @@
 var form = document.getElementById("input");
-form.addEventListener("change", ok);
+form.addEventListener("change", doit);
 
-function ok() {
+function doit() {
   // get inputs
   var modele = document.getElementById("modele").value;
   var standard = document.getElementById("standard").value;
