@@ -3,11 +3,11 @@ form.addEventListener("change", doit);
 
 function doit() {
   // get inputs
-  var modele = document.getElementById("modele").value;
-  var standard = document.getElementById("standard").value;
-  var mode = document.getElementById("mode").value;
-  var jeu = document.getElementById("jeu").value;
-  var casse = document.getElementById("casse").value;
+//  var modele = document.getElementById("modele").value;
+//  var standard = document.getElementById("standard").value;
+//  var mode = document.getElementById("mode").value;
+//  var jeu = document.getElementById("jeu").value;
+//  var casse = document.getElementById("casse").value;
   var phrase = document.getElementById("phrase").value;
   var output = document.getElementById("output");
   
