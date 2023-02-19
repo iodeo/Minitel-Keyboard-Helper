@@ -7,6 +7,12 @@
     <title>Minitel Keyboard Helper</title>
   </head>
   <body>
+    <div class="header">
+      <h1>Minitel Keyboard Helper</h1>
+      <p>Comment saisir les caractères spéciaux avec le clavier du minitel ?
+        <br>Entrez votre texte dans le champ ci-dessous et voilà !
+      </p>
+    </div>
     <div id="input" class="column">
       <div class="wrap">
         <div class="column">
@@ -52,27 +58,44 @@
         <div class="column">
           <label for="phrase">Texte à saisir</label>
           <input name="phrase" id="phrase" type="text" size="36">
-          <!--input type="button" value="Ok"-->
+        </div>
+      </div>
+      <div class="wrap small">
+        <div class="column">
+          <div class="row">
+            <input type="checkbox" id="ascii" name="ascii" value="none">
+            <label for="ascii">Afficher les codes ascii</label>
+          </div>
+          <div class="row">
+            <input type="checkbox" id="sequence" name="sequence" value="none">
+            <label for="sequence">Afficher les séquences minitel</label>
+          </div>
         </div>
       </div>
     </div>
     <div class="wrap">
-    <div class="column">
-      <label for="output" class="large">Séquence clavier</label>
-      <table id="output">
-        <thead>
-          <tr>
-            <th>code ascii</th>
-            <th>caractère</th>
-            <th>touches clavier</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- see script.js -->
-        </tbody>
-      </table>
+      <div class="column">
+        <label for="output" class="large">Séquence clavier</label>
+        <table id="output">
+          <thead>
+            <tr>
+              <th>code ascii</th>
+              <th>caractère</th>
+              <th>touches clavier</th>
+              <th>séquence minitel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- see script.js -->
+          </tbody>
+        </table>
+      </div>
     </div>
-    </div>
+    <footer>
+      <span>° ~ o ~ ^_^ ~ o ~ °</span>
+      <span>This is part of <a href="https://github.com/iodeo/Minitel-ESP32">Minitel-ESP32</a> project</span>
+      <span>© <a href="https://iodeo.fr">iodeo.fr</a> 2023</span>
+    </footer>
   </body>
   <script src="script.js"></script>
 </html>
