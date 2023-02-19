@@ -7,7 +7,7 @@ function doit() {
 //  var standard = document.getElementById("standard").value;
 //  var mode = document.getElementById("mode").value;
 //  var jeu = document.getElementById("jeu").value;
-//  var casse = document.getElementById("casse").value;
+  var casse = document.getElementById("casse").value;
   var phrase = document.getElementById("phrase").value;
   var ascii = document.getElementById("ascii").checked;
   var sequence = document.getElementById("sequence").checked;
@@ -36,10 +36,16 @@ function doit() {
     var car = phrase.charAt(icar);
     var cod = car.charCodeAt(0);
     
-    var index = m1b_videotex_ascii.findIndex(function(ele){return ele==cod;});
+    // swap upper and lower letter if lower mode is set
+    var tmp = cod;
+    if (casse=="min") {
+      if (car>="A" && car<="Z") tmp += 32;
+      else if (car>="a" && car<="z") tmp -= 32;
+    }
+    var index = m1b_videotex_ascii.findIndex(function(ele){return ele==tmp;});
     var key = m1b_videotex_key[index];
     var seq = m1b_videotex_sequence[index];
-    //console.log("%i : %s : %s", cod, car, str)
+    //console.log("%i : %s : %s : %s", cod, car, key, seq)
     var row = output.insertRow(-1);
     row.insertCell().innerHTML = cod;
     row.insertCell().innerHTML = car;
