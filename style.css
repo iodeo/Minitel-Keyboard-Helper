@@ -1,6 +1,13 @@
 body {
   font-family: monospace;
+  display: flex;
+  flex-direction: column;
 }
+
+.header {
+  text-align: center;
+}
+
 .wrap {
   display: flex;
   flex-wrap: wrap;
@@ -16,7 +23,11 @@ body {
 }
 
 .large {
-  font-size: 1.1em;
+  font-size: 1.15em;
+}
+
+.small {
+  font-size: 0.85em;
 }
 
 label {
@@ -37,11 +48,34 @@ th, td {
   text-align: center;
 }
 
-th:nth-child(3n+1),td:nth-child(3n+1) {
-  color: grey;
+th:nth-child(4n+1),td:nth-child(4n+1) {
+  color: #47E3FF;
+  display: none;
 }
 
-th:nth-child(3n),td:nth-child(3n) {
+th:nth-child(4n+3),td:nth-child(4n+3) {
   text-align: left;
 }
 
+th:nth-child(4n),td:nth-child(4n) {
+  color: #FF6347;
+  text-align: left;
+  display: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2.5em;
+  color: grey;
+}
+
+footer span {
+  margin: 0.25em;
+}
+
+footer a {
+  color: grey;
+}
