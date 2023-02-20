@@ -1,1 +1,1 @@
-## [Consulter la page html](https://iodeo.github.io/Minitel-Keyboard-Helper)
+## [Consulter la page](https://iodeo.github.io/MinitelKeyboardHelper)
