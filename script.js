@@ -38,8 +38,8 @@ function doit() {
 
     var index = m1b_videotex_ascii.findIndex(function(ele){return ele==cod;});
     var key = "";
-    if (casse=="maj") m1b_videotex_key[index];
-    else m1b_videotex_key_lower[index];
+    if (casse=="maj") key = m1b_videotex_key[index];
+    else key = m1b_videotex_key_lower[index];
     var seq = m1b_videotex_sequence[index];
     //console.log("%i : %s : %s : %s", cod, car, key, seq)
     var row = output.insertRow(-1);
