@@ -34,7 +34,15 @@ function doit() {
   // fill table
   for (icar in phrase) {
     var car = phrase.charAt(icar);
-    var cod = cp1252.indexOf(car);
+    var cod = cp1252.indexOf(car); // get cp1252 code up to 0xFF
+    if (cod == -1) { //add char with code > 0xFF
+      switch(car) {
+        case '←': cod = 8592; break;
+        case '↑': cod = 8593; break;
+        case '→': cod = 8594; break;
+        case '↓': cod = 8595; break;
+      }
+    }
 
     var index = m1b_videotex_ascii.findIndex(function(ele){return ele==cod;});
     var key = "";
