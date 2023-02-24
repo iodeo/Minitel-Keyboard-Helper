@@ -58,13 +58,14 @@
         <div class="column">
           <label for="phrase">Texte à saisir</label>
           <input name="phrase" id="phrase" type="text" size="36">
+          <div class="wrap end"><button onclick="listAll()">Lister tout</button></div>
         </div>
       </div>
       <div class="wrap small">
         <div class="column">
           <div class="row">
-            <input type="checkbox" id="ascii" name="ascii" value="none">
-            <label for="ascii">Afficher les codes ascii (CP1252)</label>
+            <input type="checkbox" id="unicode" name="unicode" value="none">
+            <label for="unicode">Afficher les codes unicode</label>
           </div>
           <div class="row">
             <input type="checkbox" id="sequence" name="sequence" value="none">
@@ -79,7 +80,7 @@
         <table id="output">
           <thead>
             <tr>
-              <th>code ascii</th>
+              <th>unicode</th>
               <th>caractère</th>
               <th>touches clavier</th>
               <th>séquence minitel</th>
