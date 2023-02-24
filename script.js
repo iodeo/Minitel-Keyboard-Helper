@@ -20,6 +20,7 @@ function fillTable(phrase) {
 //  var jeu = document.getElementById("jeu").value;
   var casse = document.getElementById("casse").value;
   var unicode = document.getElementById("unicode").checked;
+  var utf8 = document.getElementById("utf-8").checked;
   var sequence = document.getElementById("sequence").checked;
   var output = document.getElementById("output");
   
@@ -46,17 +47,21 @@ function fillTable(phrase) {
     var seq = m1b_videotex_sequence[index];
     // append to table
     var row = output.insertRow(-1);
-    row.insertCell().innerHTML = cod;
+    row.insertCell().innerHTML = formatUnicode(cod);
+    row.insertCell().innerHTML = encodeUtf8(cod);
     row.insertCell().innerHTML = car;
     row.insertCell().innerHTML = key;
     row.insertCell().innerHTML = seq;
   }
   
   // hide or display unicode
-  var cells = document.querySelectorAll("th:nth-child(4n+1),td:nth-child(4n+1)");
+  var cells = document.querySelectorAll("th:nth-child(5n+1),td:nth-child(5n+1)");
   cells.forEach(element => element.style.display = unicode?"table-cell":"none");
+  // hide or display utf-8
+  var cells = document.querySelectorAll("th:nth-child(5n+2),td:nth-child(5n+2)");
+  cells.forEach(element => element.style.display = utf8?"table-cell":"none");
   // hide or display sequence
-  cells = document.querySelectorAll("th:nth-child(4n),td:nth-child(4n)");
+  cells = document.querySelectorAll("th:nth-child(5n),td:nth-child(5n)");
   cells.forEach(element => element.style.display = sequence?"table-cell":"none");
   
 }
@@ -72,3 +77,35 @@ const m1b_videotex_sequence = ["0x00","0x01","0x02","0x03","0x04","0x05","0x06",
 const charname = ["NUL","SOH","STX","ETX","EOT","ENQ","ACK","BEL","BS","HT","LF","VT","FF","CR","SO","SI","DLE","Curseur on","REP","SEP","Curseur off","NACK","SYN","ETB","CAN","SS2","SUB","ESC","FS","SS3","RS","US","Espace"];
 
 const allchar = "\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2A\x2B\x2C\x2D\x2E\x2F\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3A\x3B\x3C\x3D\x3E\x3F\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5A\x5B\x5C\x5D\x5F\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7A\x7B\x7C\x7D\x7E\x7F\xA3\xA7\xB0\xB1\xBC\xBD\xBE\xC0\xC7\xC8\xC9\xDF\xE0\xE2\xE4\xE7\xE8\xE9\xEA\xEB\xEE\xEF\xF4\xF6\xF7\xF9\xFB\xFC\u0152\u0153\u2014\u2190\u2191\u2192\u2193";
+
+function formatUnicode(code) {
+  var out = code.toString(16);
+  out = "0".repeat(4-out.length) + out;
+  out = "U+" + out;
+  return out.toUpperCase();
+}
+
+function encodeUtf8(code) {
+  var out;
+  if (code < 0x80) { // U+0000 à U+007F
+    out = code.toString(16);
+    if (out.length < 2) out = "0" + out;
+  } else if (code < 0x800) { // U+0080 à U+07FF
+    out = ((0b110 << 5) | (code >> 6)).toString(16);
+    if (out.length < 2) out = "0" + out;
+    var tmp = ((0b10 << 6) | (code & 0x3F)).toString(16);
+    if (tmp.length <2) tmp = "0" + tmp;
+    out = out + tmp;
+  } else if(code < 0x10000) { // U+0800 à U+FFFF
+    out = ((0b1110 << 4) | (code >> 12)).toString(16);;
+    if (out.length < 2) out = "0" + out;
+    var tmp = ((0b10 << 6) | ((code >> 6) & 0x3F)).toString(16);;
+    if (tmp.length <2) tmp = "0" + tmp;
+    out = out + tmp;
+    tmp = ((0b10 << 6) | (code & 0x3F)).toString(16);;
+    if (tmp.length <2) tmp = "0" + tmp;
+    out = out + tmp;
+  }
+  out = "0x" + out.toUpperCase();
+  return out;
+}
