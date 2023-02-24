@@ -22,6 +22,23 @@ body {
   margin: 0.5em;
 }
 
+.end {
+  justify-content: end;
+  margin-right: 0;
+}
+
+button {
+  width: fit-content;
+  border: none;
+  background: none;
+  color: gray;
+  text-decoration: underline;
+}
+
+button:hover {
+  color: black;
+}
+
 .large {
   font-size: 1.15em;
 }
@@ -35,7 +52,7 @@ label {
 }
 
 table, td, th {
-  border: 1px solid grey;
+  border: 1px solid gray;
 }
 
 table {
@@ -69,7 +86,7 @@ footer {
   justify-content: center;
   text-align: center;
   margin-top: 2.5em;
-  color: grey;
+  color: gray;
 }
 
 footer span {
@@ -77,5 +94,5 @@ footer span {
 }
 
 footer a {
-  color: grey;
+  color: gray;
 }
