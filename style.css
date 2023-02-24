@@ -19,12 +19,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0.5em;
+  margin: 0 0.5em 0 0.5em;
 }
 
 .end {
   justify-content: end;
-  margin-right: 0;
+  margin: 0;
 }
 
 button {
