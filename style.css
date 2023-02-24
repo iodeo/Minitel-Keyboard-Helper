@@ -65,17 +65,22 @@ th, td {
   text-align: center;
 }
 
-th:nth-child(4n+1),td:nth-child(4n+1) {
-  color: #47E3FF;
+th:nth-child(5n+1),td:nth-child(5n+1) {
+  color: blue;
   display: none;
 }
 
-th:nth-child(4n+3),td:nth-child(4n+3) {
+th:nth-child(5n+2),td:nth-child(5n+2) {
+  color: purple;
+  display: none;
+}
+
+th:nth-child(5n+4),td:nth-child(5n+4) {
   text-align: left;
 }
 
-th:nth-child(4n),td:nth-child(4n) {
-  color: #FF6347;
+th:nth-child(5n),td:nth-child(5n) {
+  color: crimson;
   text-align: left;
   display: none;
 }
